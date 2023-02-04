@@ -343,5 +343,3 @@ end
 AddEventHandler('esx_society:openBossMenu', function(society, close, options)
 	OpenBossMenu(society, close, options)
 end)
-
-if ESX.PlayerLoaded then RefreshBussHUD() end
