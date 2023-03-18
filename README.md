@@ -10,7 +10,7 @@ Society management for ESX. Adds employee management (hire, fire, promote / demo
 
 ### Using [fvm](https://github.com/qlaffont/fvm-installer)
 ```
-fvm install --save --folder=esx esx-org/esx_society
+fvm install --save --folder=esx esx-framework/esx_society
 ```
 
 ### Using Git
@@ -20,7 +20,7 @@ git clone https://github.com/ESX-Org/esx_society [esx]/esx_society
 ```
 
 ### Manually
-- Download https://github.com/ESX-Org/esx_society/archive/master.zip
+- Download https://github.com/esx-framework/esx_society/archive/master.zip
 - Put it in the `[esx]` directory
 
 ## Installation
