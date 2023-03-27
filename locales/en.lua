@@ -40,4 +40,5 @@ Locales['en'] = {
   ['you_have_been_fired']    = 'you have been fired from %s',
   ['you_have_promoted']      = 'you have promoted %s as %s',
   ['you_have_been_promoted'] = 'you have been promoted!',
+  ['name_not_found']         = 'Name not found.',
 }

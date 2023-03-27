@@ -36,4 +36,5 @@ Locales['fr'] = {
   ['you_have_been_fired']    = 'Vous avez été viré de la société %s',
   ['you_have_promoted']      = 'Vous avez promu %s en tant que %s',
   ['you_have_been_promoted'] = 'Vous avez été promu',
+  ['name_not_found']         = 'Nom non trouvé.',
 }
