@@ -268,7 +268,7 @@ function OpenManageSalaryMenu(society, options)
 
 		ESX.OpenContext("right", elements, function(menu,element)
 			local elements = {
-				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = "Change a grade salary amount", value = element.value},
+				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = TranslateCap('change_salary'), value = element.value},
 				{icon = "fas fa-wallet", title = TranslateCap('amount'), input = true, inputType = "number", inputPlaceholder = TranslateCap('salary_amount'), inputMin = 1, inputMax = Config.MaxSalary, name = "gradesalary"},
 				{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm"}
 			}
