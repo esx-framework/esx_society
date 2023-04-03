@@ -95,7 +95,7 @@ AddEventHandler('esx_society:depositMoney', function(societyName, amount)
 	end
 	if amount > 0 and xPlayer.getMoney() >= amount then
 		TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
-			xPlayer.removeMoney(amount, TranslateCap('society_deposit))
+			xPlayer.removeMoney(amount, TranslateCap('society_deposit'))
 			xPlayer.showNotification(TranslateCap('have_deposited', ESX.Math.GroupDigits(amount)))
 			account.addMoney(amount)
 		end)
