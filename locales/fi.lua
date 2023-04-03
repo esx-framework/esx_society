@@ -1,6 +1,6 @@
 Locales['fi'] = {
-  ['actions']                = 'toiminnot',
-  ['boss_menu']              = 'boss menu',
+  ['actions']                = 'Toiminnot',
+  ['boss_menu']              = 'Pomo valikko',
   ['money_generic']          = '€%s',
   ['deposit_amount']         = 'talletus summa',
   ['deposit_society_money']  = 'talleta yritykselle rahaa',
