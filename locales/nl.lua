@@ -57,5 +57,5 @@ Locales['nl'] = {
   ['money_remove_reason'] = 'Storting Genootschap', 
   ['money_add_reason'] = 'Opnement van Genootschap',
   ['name_not_found'] = 'Naam niet gevonden.',
-  ['employees_title'] = 'Employees',
+  ['employees_title'] = 'Werknemers',
 }
