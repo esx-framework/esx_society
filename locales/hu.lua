@@ -58,4 +58,5 @@ Locales['hu'] = {
   ['money_remove_reason'] = 'Society Deposit', 
   ['money_add_reason'] = 'Society Withdraw',
   ['name_not_found'] = 'Name not found.',
+  ['employees_title'] = 'Employees',
 }
