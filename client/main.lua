@@ -104,7 +104,7 @@ function OpenBossMenu(society, close, options)
 				elseif element.value == "return" then
 					OpenBossMenu(society, nil, options)
 				end
-			end)
+			end, close)
 		end
 	end, society)
 end
