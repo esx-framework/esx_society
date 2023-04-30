@@ -132,7 +132,7 @@ end
 function OpenEmployeeList(society, options)
 	ESX.TriggerServerCallback('esx_society:getEmployees', function(employees)
 		local elements = {
-			{unselectable = true, icon = "fas fa-user", title = "Employees"}
+			{unselectable = true, icon = "fas fa-user", title = TranslateCap('employees_title')}
 		}
 
 		for i=1, #employees, 1 do
