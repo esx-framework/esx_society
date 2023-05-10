@@ -221,7 +221,7 @@ ESX.RegisterServerCallback('esx_society:getEmployees', function(source, cb, soci
 			end
 
 			if not alreadyInTable then
-				local name = TranslateCap('name_not_found') -- maybe this should be a locale instead ¯\_(ツ)_/¯ -- I will do it xx Arctos.
+				local name = TranslateCap('name_not_found')
 
 				if Config.EnableESXIdentity then
 					name = row.firstname .. ' ' .. row.lastname 
