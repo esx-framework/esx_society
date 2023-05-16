@@ -44,8 +44,8 @@ TriggerServerEvent('esx_society:depositMoney', society, amount)
 TriggerServerEvent('esx_society:washMoney', society, amount)
 
 
-TriggerEvent('esx_society:openBossMenu', society, function (data, menu)
-	menu.close()
+TriggerEvent('esx_society:openBossMenu', society, function (menu)
+	ESX.CloseContext() 
 end, {wash = false}) -- set custom options, e.g disable washing
 ```
 

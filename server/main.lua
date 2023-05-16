@@ -71,7 +71,7 @@ AddEventHandler('esx_society:withdrawMoney', function(societyName, amount)
 	TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
 		if amount > 0 and account.money >= amount then
 			account.removeMoney(amount)
-			xPlayer.addMoney(amount, "Society Withdraw")
+			xPlayer.addMoney(amount, TranslateCap('money_add_reason'))
 			xPlayer.showNotification(TranslateCap('have_withdrawn', ESX.Math.GroupDigits(amount)))
 		else
 			xPlayer.showNotification(TranslateCap('invalid_amount'))
@@ -95,7 +95,7 @@ AddEventHandler('esx_society:depositMoney', function(societyName, amount)
 	end
 	if amount > 0 and xPlayer.getMoney() >= amount then
 		TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
-			xPlayer.removeMoney(amount, "Society Deposit")
+			xPlayer.removeMoney(amount, TranslateCap('money_remove_reason'))
 			xPlayer.showNotification(TranslateCap('have_deposited', ESX.Math.GroupDigits(amount)))
 			account.addMoney(amount)
 		end)
@@ -221,7 +221,7 @@ ESX.RegisterServerCallback('esx_society:getEmployees', function(source, cb, soci
 			end
 
 			if not alreadyInTable then
-				local name = "Name not found." -- maybe this should be a locale instead ¯\_(ツ)_/¯
+				local name = TranslateCap('name_not_found')
 
 				if Config.EnableESXIdentity then
 					name = row.firstname .. ' ' .. row.lastname 
