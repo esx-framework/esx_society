@@ -40,6 +40,7 @@ Locales['en'] = {
   ['you_have_been_fired']    = 'you have been fired from %s',
   ['you_have_promoted']      = 'you have promoted %s as %s',
   ['you_have_been_promoted'] = 'you have been promoted!',
+  ['name_not_found']         = 'Name not found.',
   ['withdraw_description'] = 'Withdraw money from the society account',
   ['deposit_description'] = 'Deposit some money into the society account',
   ['wash_money_description'] = 'Deposit some money into the money wash', 
@@ -57,5 +58,5 @@ Locales['en'] = {
   ['money_remove_reason'] = 'Society Deposit', 
   ['money_add_reason'] = 'Society Withdraw',
   ['name_not_found'] = 'Name not found.',
-  ['employees_title'] = 'Employees',
+  ['employees_title'] = 'Employees'
 }

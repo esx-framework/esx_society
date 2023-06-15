@@ -36,7 +36,7 @@ Locales['fr'] = {
   ['you_have_been_fired']    = 'Vous avez été viré de la société %s',
   ['you_have_promoted']      = 'Vous avez promu %s en tant que %s',
   ['you_have_been_promoted'] = 'Vous avez été promu',
-  -- new not translated ↓
+  ['name_not_found']         = 'Nom non trouvé.',
   ['check_society_balance']  = 'check society balance',
   ['check_balance']          = 'balance is ~g~$%s',
   ['grade_management']       = 'grade label management',
@@ -58,5 +58,5 @@ Locales['fr'] = {
   ['money_remove_reason'] = 'Society Deposit', 
   ['money_add_reason'] = 'Society Withdraw',
   ['name_not_found'] = 'Name not found.',
-  ['employees_title'] = 'Employees',
+  ['employees_title'] = 'Employees'
 }
