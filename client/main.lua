@@ -49,10 +49,10 @@ function OpenBossMenu(society, close, options)
 					TriggerServerEvent('esx_society:checkSocietyBalance', society)
 				elseif element.value == "withdraw_society_money" then
 					local elements = {
-						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('withdraw_amount'), description = "Withdraw money from the society account"},
-						{icon = "fas fa-wallet", title = "Amount", input = true, inputType = "number", inputPlaceholder = "Amount to withdraw..", inputMin = 1, inputMax = 250000, name = "withdraw"},
-						{icon = "fas fa-check", title = "Confirm", value = "confirm"},
-						{icon = "fas fa-arrow-left", title = "Return", value = "return"}
+						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('withdraw_amount'), description = TranslateCap('withdraw_description')},
+						{icon = "fas fa-wallet", title = TranslateCap('amount_title'), input = true, inputType = "number", inputPlaceholder = TranslateCap('withdraw_amount_placeholder'), inputMin = 1, inputMax = 250000, name = "withdraw"},
+						{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm"},
+						{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 					}
 					ESX.RefreshContext(elements)
 				elseif element.value == "confirm" then
@@ -65,10 +65,10 @@ function OpenBossMenu(society, close, options)
 					end
 				elseif element.value == "deposit_money" then
 					local elements = {
-						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('deposit_amount'), description = "Deposit some money into the society account"},
-						{icon = "fas fa-wallet", title = "Amount", input = true, inputType = "number", inputPlaceholder = "Amount to deposit..", inputMin = 1, inputMax = 250000, name = "deposit"},
-						{icon = "fas fa-check", title = "Confirm", value = "confirm2"},
-						{icon = "fas fa-arrow-left", title = "Return", value = "return"}
+						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('deposit_amount'), description = TranslateCap('deposit_description')},
+						{icon = "fas fa-wallet", title = TranslateCap('amount_title'), input = true, inputType = "number", inputPlaceholder = TranslateCap('deposit_amount_placeholder'), inputMin = 1, inputMax = 250000, name = "deposit"},
+						{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm2"},
+						{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 					}
 					ESX.RefreshContext(elements)
 				elseif element.value == "confirm2" then
@@ -81,10 +81,10 @@ function OpenBossMenu(society, close, options)
 					end
 				elseif element.value == "wash_money" then
 					local elements = {
-						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('wash_money_amount'), description = "Deposit some money into the money wash"},
-						{icon = "fas fa-wallet", title = "Amount", input = true, inputType = "number", inputPlaceholder = "Amount to wash..", inputMin = 1, inputMax = 250000, name = "wash"},
-						{icon = "fas fa-check", title = "Confirm", value = "confirm3"},
-						{icon = "fas fa-arrow-left", title = "Return", value = "return"}
+						{unselectable = true, icon = "fas fa-wallet", title = TranslateCap('wash_money_amount'), description = TranslateCap('wash_money_description')},
+						{icon = "fas fa-wallet", title = TranslateCap('amount_title'), input = true, inputType = "number", inputPlaceholder = TranslateCap('money_wash_amount_placeholder'), inputMin = 1, inputMax = 250000, name = "wash"},
+						{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm3"},
+						{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 					}
 					ESX.RefreshContext(elements)
 				elseif element.value == "confirm3" then
@@ -104,7 +104,7 @@ function OpenBossMenu(society, close, options)
 				elseif element.value == "return" then
 					OpenBossMenu(society, nil, options)
 				end
-			end)
+			end, close)
 		end
 	end, society)
 end
@@ -116,7 +116,7 @@ function OpenManageEmployeesMenu(society, options)
 		{icon = "fas fa-users", title = TranslateCap('recruit'), value = "recruit"}
 	}
 	
-	elements[#elements+1] = {icon = "fas fa-arrow-left", title = "Return", value = "return"}
+	elements[#elements+1] = {icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 	
 	ESX.OpenContext("right", elements, function(menu,element)
 		if element.value == "employee_list" then
@@ -132,7 +132,7 @@ end
 function OpenEmployeeList(society, options)
 	ESX.TriggerServerCallback('esx_society:getEmployees', function(employees)
 		local elements = {
-			{unselectable = true, icon = "fas fa-user", title = "Employees"}
+			{unselectable = true, icon = "fas fa-user", title = TranslateCap('employees_title')}
 		}
 
 		for i=1, #employees, 1 do
@@ -141,7 +141,7 @@ function OpenEmployeeList(society, options)
 			elements[#elements+1] = {icon = "fas fa-user", title = employees[i].name .. " | " ..gradeLabel, gradeLabel = gradeLabel, data = employees[i]}
 		end
 
-		elements[#elements+1] = {icon = "fas fa-arrow-left", title = "Return", value = "return"}
+		elements[#elements+1] = {icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 
 		ESX.OpenContext("right", elements, function(menu,element) 
 			if element.value == "return" then
@@ -149,9 +149,9 @@ function OpenEmployeeList(society, options)
 			else
 				local elements2 = {
 					{unselectable = true, icon = "fas fa-user", title = element.title},
-					{icon = "fas fa-user", title = "Promote", value = "promote"},
-					{icon = "fas fa-user", title = "Fire", value = "fire"},
-					{icon = "fas fa-arrow-left", title = "Return", value = "return"}
+					{icon = "fas fa-user", title = TranslateCap('promote'), value = "promote"},
+					{icon = "fas fa-user", title = TranslateCap('fire'), value = "fire"},
+					{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 				}
 				ESX.OpenContext("right", elements2, function(menu2,element2)
 					local employee = element.data
@@ -185,14 +185,14 @@ function OpenRecruitMenu(society, options)
 			end
 		end
 
-		elements[#elements+1] = {icon = "fas fa-arrow-left", title = "Return", value = "return"}
+		elements[#elements+1] = {icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 
 		ESX.OpenContext("right", elements, function(menu,element)
 			if element.value == "return" then
 				OpenManageEmployeesMenu(society, options)
 			else
 				local elements2 = {
-					{unselectable = true, icon = "fas fa-user", title = "Confirm"},
+					{unselectable = true, icon = "fas fa-user", title = TranslateCap('confirm')},
 					{icon = "fas fa-times", title = TranslateCap('no'), value = "no"},
 					{icon = "fas fa-check", title = TranslateCap('yes'), value = "yes"},
 				}
@@ -264,13 +264,14 @@ function OpenManageSalaryMenu(society, options)
 			}
 		end
 			
-		elements[#elements+1] = {icon = "fas fa-arrow-left", title = "Return", value = "return"}
+		elements[#elements+1] = {icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 
 		ESX.OpenContext("right", elements, function(menu,element)
 			local elements = {
-				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = "Change a grade salary amount", value = element.value},
-				{icon = "fas fa-wallet", title = "Amount", input = true, inputType = "number", inputPlaceholder = "Amount to change grade salary..", inputMin = 1, inputMax = Config.MaxSalary, name = "gradesalary"},
-				{icon = "fas fa-check", title = "Confirm", value = "confirm"}
+				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = TranslateCap('change_salary_description'), value = element.value},
+				{icon = "fas fa-wallet", title = TranslateCap('amount_title'), input = true, inputType = "number", inputPlaceholder = TranslateCap('change_salary_placeholder'), inputMin = 1, inputMax = Config.MaxSalary, name = "gradesalary"},
+				{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm"}, 
+				{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 			}
 
 			ESX.RefreshContext(elements)
@@ -312,13 +313,14 @@ function OpenManageGradesMenu(society, options)
 			elements[#elements+1] = {icon = "fas fa-wallet", title = ('%s'):format(gradeLabel), value = job.grades[i].grade}
 		end
 			
-		elements[#elements+1] = {icon = "fas fa-arrow-left", title = "Return", value = "return"}
+		elements[#elements+1] = {icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 
 		ESX.OpenContext("right", elements, function(menu,element)
 			local elements = {
-				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = "Change a grade label", value = element.value},
-				{icon = "fas fa-wallet", title = "Label", input = true, inputType = "text", inputPlaceholder = "Label to change job grade label..", name = "gradelabel"},
-				{icon = "fas fa-check", title = "Confirm", value = "confirm"}
+				{unselectable = true, icon = "fas fa-wallet", title = element.title, description = TranslateCap('change_label_description'), value = element.value},
+				{icon = "fas fa-wallet", title = TranslateCap('change_label_title'), input = true, inputType = "text", inputPlaceholder = TranslateCap('change_label_placeholder'), name = "gradelabel"},
+				{icon = "fas fa-check", title = TranslateCap('confirm'), value = "confirm"},
+				{icon = "fas fa-arrow-left", title = TranslateCap('return'), value = "return"}
 			}
 
 			ESX.RefreshContext(elements)
