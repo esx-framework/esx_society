@@ -269,7 +269,7 @@ end)
 
 ESX.RegisterServerCallback('esx_society:setJob', function(source, cb, identifier, job, grade, actionType)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local isBoss = xPlayer.job.grade_name == 'boss'
+	local isBoss = Config.BossGrades[xPlayer.job.grade_name]
 	local xTarget = ESX.GetPlayerFromIdentifier(identifier)
 
 	if not isBoss then
@@ -305,7 +305,7 @@ end)
 ESX.RegisterServerCallback('esx_society:setJobSalary', function(source, cb, job, grade, salary)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	if xPlayer.job.name == job and xPlayer.job.grade_name == 'boss' then
+	if xPlayer.job.name == job and Config.BossGrades[xPlayer.job.grade_name] then
 		if salary <= Config.MaxSalary then
 			MySQL.update('UPDATE job_grades SET salary = ? WHERE job_name = ? AND grade = ?', {salary, job, grade},
 			function(rowsChanged)
@@ -334,7 +334,7 @@ end)
 ESX.RegisterServerCallback('esx_society:setJobLabel', function(source, cb, job, grade, label)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	if xPlayer.job.name == job and xPlayer.job.grade_name == 'boss' then
+	if xPlayer.job.name == job and Config.BossGrades[xPlayer.job.grade_name] then
 			MySQL.update('UPDATE job_grades SET label = ? WHERE job_name = ? AND grade = ?', {label, job, grade},
 			function(rowsChanged)
 				Jobs[job].grades[tostring(grade)].label = label
@@ -399,7 +399,7 @@ end)
 function isPlayerBoss(playerId, job)
 	local xPlayer = ESX.GetPlayerFromId(playerId)
 
-	if xPlayer.job.name == job and xPlayer.job.grade_name == 'boss' then
+	if xPlayer.job.name == job and Config.BossGrades[xPlayer.job.grade_name] then
 		return true
 	else
 		print(('esx_society: %s attempted open a society boss menu!'):format(xPlayer.identifier))
