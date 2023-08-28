@@ -355,21 +355,20 @@ ESX.RegisterServerCallback('esx_society:setJobLabel', function(source, cb, job, 
 	end
 end)
 
-local getOnlinePlayers, onlinePlayers = false, {}
+local getOnlinePlayers, onlinePlayers = false, nil
 ESX.RegisterServerCallback('esx_society:getOnlinePlayers', function(source, cb)
-	if getOnlinePlayers == false and next(onlinePlayers) == nil then -- Prevent multiple xPlayer loops from running in quick succession
+	if getOnlinePlayers == false and onlinePlayers == nil then -- Prevent multiple xPlayer loops from running in quick succession
 		getOnlinePlayers, onlinePlayers = true, {}
 		
-		local xPlayers = ESX.GetExtendedPlayers()
-		for i=1, #(xPlayers) do 
-			local xPlayer = xPlayers[i]
+		local xPlayers = ESX.GetExtendedPlayers() -- Returns all xPlayers
+		for _, xPlayer in pairs(xPlayers) do
 			table.insert(onlinePlayers, {
 				source = xPlayer.source,
 				identifier = xPlayer.identifier,
 				name = xPlayer.name,
 				job = xPlayer.job
 			})
-		end
+		end 
 		cb(onlinePlayers)
 		getOnlinePlayers = false
 		Wait(1000) -- For the next second any extra requests will receive the cached list
@@ -379,6 +378,7 @@ ESX.RegisterServerCallback('esx_society:getOnlinePlayers', function(source, cb)
 	while getOnlinePlayers do Wait(0) end -- Wait for the xPlayer loop to finish
 	cb(onlinePlayers)
 end)
+
 
 ESX.RegisterServerCallback('esx_society:getVehiclesInGarage', function(source, cb, societyName)
 	local society = GetSociety(societyName)
