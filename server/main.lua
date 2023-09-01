@@ -372,7 +372,7 @@ ESX.RegisterServerCallback('esx_society:getOnlinePlayers', function(source, cb)
 		cb(onlinePlayers)
 		getOnlinePlayers = false
 		Wait(1000) -- For the next second any extra requests will receive the cached list
-		onlinePlayers = {}
+		onlinePlayers = nil
 		return
 	end
 	while getOnlinePlayers do Wait(0) end -- Wait for the xPlayer loop to finish
