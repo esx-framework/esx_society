@@ -169,9 +169,6 @@ ESX.RegisterServerCallback('esx_society:getSocietyMoney', function(source, cb, s
 		print(('[^3WARNING^7] Player ^5%s^7 attempted to get money from non-existing society - ^5%s^7!'):format(source, societyName))
 		return cb(0)
 	end
-	if not society then
-		return cb(0)
-	end
 	TriggerEvent('esx_addonaccount:getSharedAccount', society.account, function(account)
 		cb(account.money or 0)
 	end)
