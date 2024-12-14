@@ -16,7 +16,7 @@ fvm install --save --folder=esx esx-framework/esx_society
 ### Using Git
 ```
 cd resources
-git clone https://github.com/ESX-Org/esx_society [esx]/esx_society
+git clone https://github.com/esx-framework/esx_society [esx]/esx_society
 ```
 
 ### Manually
