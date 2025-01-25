@@ -289,7 +289,7 @@ ESX.RegisterServerCallback('esx_society:setJob', function(source, cb, identifier
 		xPlayer.showNotification(TranslateCap("you_have_hired", xTarget.getName()))
 	elseif actionType == 'promote' then
 		xTarget.showNotification(TranslateCap('you_have_been_promoted'))
-		xPlayer.showNotification(TranslateCap("you_have_promoted", xTarget.getName(), xTarget.getJob().label))
+		xPlayer.showNotification(TranslateCap("you_have_promoted", xTarget.getName(), xTarget.getJob().grade_label))
 	elseif actionType == 'fire' then
 		xTarget.showNotification(TranslateCap('you_have_been_fired', xTarget.getJob().label))
 		xPlayer.showNotification(TranslateCap("you_have_fired", xTarget.getName()))
