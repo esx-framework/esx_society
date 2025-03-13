@@ -32,7 +32,7 @@ start esx_society
 ```
 
 ## Explanation
-ESX Society works with addon accounts named 'society_xxx', for example 'society_taxi' or 'society_realestateagent'. If you job grade is 'boss' the society money will be displayed in your hud.
+ESX Society works with addon accounts named 'society_xxx', for example 'society_taxi' or 'society_realestateagent'. If your job grade is 'boss' the society money will be displayed in your hud.
 
 ## Usage
 ```lua
@@ -46,7 +46,7 @@ TriggerServerEvent('esx_society:washMoney', society, amount)
 
 TriggerEvent('esx_society:openBossMenu', society, function (menu)
 	ESX.CloseContext() 
-end, {wash = false}) -- set custom options, e.g disable washing
+end, {wash = false}) -- set custom options, e.g. disable washing
 ```
 
 # Legal
