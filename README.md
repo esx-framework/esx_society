@@ -46,7 +46,7 @@ TriggerServerEvent('esx_society:washMoney', society, amount)
 
 TriggerEvent('esx_society:openBossMenu', society, function (menu)
 	ESX.CloseContext() 
-end, {wash = false}) -- set custom options, e.g., disable washing
+end, {wash = false}) -- set custom options, e.g. disable washing
 ```
 
 # Legal
