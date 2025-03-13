@@ -1,4 +1,4 @@
-Locales['el'] = {
+return {
     ['actions'] = 'Ενέργειες',
     ['boss_menu'] = 'Μενού αφεντικού',
     ['money_generic'] = '$%s',

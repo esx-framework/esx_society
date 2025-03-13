@@ -1,4 +1,4 @@
-Locales['hu'] = {
+return {
   ['actions']                = 'Cselekvések',
   ['boss_menu']              = 'Fönök Menü',
   ['money_generic']          = '%s $',
